@@ -6,6 +6,7 @@ const historySections = document.getElementById('history-section');
 
 function showDelete(whenClick){
   donationSections.classList.add('hidden');
+  historySections.classList.add('hidden')
   document.getElementById(whenClick).classList.remove('hidden');
 }
 
