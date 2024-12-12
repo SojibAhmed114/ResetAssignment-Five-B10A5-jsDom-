@@ -55,8 +55,27 @@ document.getElementById('btn-donation-One').addEventListener('click', function()
     return;
   }
   const decreaseAccountBalance = currentAccountBalance - getValue;
-  console.log(decreaseAccountBalance);
   document.getElementById('accountBalance').innerText = decreaseAccountBalance;
   const balance = donationBalance + getValue;
   document.getElementById('donationBalanceONe').innerText = balance;
-})
+});
+
+// donation section Two worked start here 
+document.getElementById('btn-donation-Two').addEventListener('click', function(){
+  const getValue = getInputValueUsingId('inputDonationTwo');
+  const donationBalance = getInnerTextUsingById('donationBalanceTwo');
+  const currentAccountBalance = getInnerTextUsingById('accountBalance');
+  if (isNaN(getValue) || getValue < 0) {
+    alert('invalid donation amount');
+    return;
+  }
+  else if (currentAccountBalance < getValue) {
+    alert('you have no insufficient balance');
+    return;
+  }
+  const decreaseAccountBalance = currentAccountBalance - getValue;
+  document.getElementById('accountBalance').innerText = decreaseAccountBalance;
+
+  const balance = donationBalance + getValue;
+  document.getElementById('donationBalanceTwo').innerText = balance;
+});
