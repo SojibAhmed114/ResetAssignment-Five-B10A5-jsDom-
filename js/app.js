@@ -16,12 +16,19 @@ function getInnerTextUsingById(idNames){
 }
 // get input value common function end here  
 
+// nav button navigation start here 
+document.getElementById('btn-navigation').addEventListener('click', function(){
+  window.location.href = '../anotherPage/otherPage.html';
+});
+function btnNavigationHome (){
+  window.location.replace('../index.html');
+}
 // button navigation section start here 
 function showDelete(whenClick){
   donationSections.classList.add('hidden');
   historySections.classList.add('hidden')
   document.getElementById(whenClick).classList.remove('hidden');
-}
+};
 
 donationBtn.addEventListener('click', function(){
   donationBtn.classList.add('bg-green-500');
