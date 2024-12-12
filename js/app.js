@@ -9,7 +9,7 @@ function getInputValueUsingId(idName){
   const inputValueNumber = parseFloat(inputValues)
   return inputValueNumber;
 }
-function getInnerTextUsingById (idNames){
+function getInnerTextUsingById(idNames){
   const text = document.getElementById(idNames).innerText;
   const textNumber = parseFloat(text);
   return textNumber;
@@ -45,6 +45,7 @@ document.getElementById('btn-donation-One').addEventListener('click', function()
   const getValue = getInputValueUsingId('inputDonationOne');
   const donationBalance = getInnerTextUsingById('donationBalanceONe');
   const currentAccountBalance = getInnerTextUsingById('accountBalance');
+  const getHeading = document.getElementById('first-heading').innerText;
   if (isNaN(getValue) || getValue < 0) {
     alert('invalid donation amount');
     return;
@@ -57,6 +58,16 @@ document.getElementById('btn-donation-One').addEventListener('click', function()
   document.getElementById('accountBalance').innerText = decreaseAccountBalance;
   const balance = donationBalance + getValue;
   document.getElementById('donationBalanceONe').innerText = balance;
+
+   //history section update 
+  const date = new Date();
+  const createSection = document.createElement('div');
+  createSection.classList.add('px-5', 'border-2', 'rounded-xl', 'space-y-3', 'p-5', 'mx-5', 'my-8');
+  createSection.innerHTML = `
+  <h2 class="text-xl font-bold"> ${getValue} Taka is ${getHeading}</h2>
+  <p class="text-gray-600">Date : ${date} </p>
+  `
+  document.getElementById('history-section').appendChild(createSection);
 });
 
 // donation section Two worked start here 
@@ -64,6 +75,7 @@ document.getElementById('btn-donation-Two').addEventListener('click', function()
   const getValue = getInputValueUsingId('inputDonationTwo');
   const donationBalance = getInnerTextUsingById('donationBalanceTwo');
   const currentAccountBalance = getInnerTextUsingById('accountBalance');
+  const getHeading = document.getElementById('second-heading').innerText;
   if (isNaN(getValue) || getValue < 0) {
     alert('invalid donation amount');
     return;
@@ -77,6 +89,16 @@ document.getElementById('btn-donation-Two').addEventListener('click', function()
 
   const balance = donationBalance + getValue;
   document.getElementById('donationBalanceTwo').innerText = balance;
+
+   //history section update 
+  const date = new Date();
+  const createSection = document.createElement('div');
+  createSection.classList.add('px-5', 'border-2', 'rounded-xl', 'space-y-3', 'p-5', 'mx-5', 'my-8');
+  createSection.innerHTML = `
+  <h2 class="text-xl font-bold"> ${getValue} Taka is ${getHeading}</h2>
+  <p class="text-gray-600">Date : ${date} </p>
+  `
+  document.getElementById('history-section').appendChild(createSection);
 });
 
 // donation section Three worked start here 
@@ -84,6 +106,7 @@ document.getElementById('btn-donation-Three').addEventListener('click', function
   const getValue = getInputValueUsingId('inputDonationThree');
   const donationBalance = getInnerTextUsingById('donationBalanceThree');
   const currentAccountBalance = getInnerTextUsingById('accountBalance');
+  const getHeading = document.getElementById('third-heading').innerText;
   if (isNaN(getValue) || getValue < 0) {
     alert('invalid donation amount');
     return;
@@ -98,5 +121,13 @@ document.getElementById('btn-donation-Three').addEventListener('click', function
   const balance = donationBalance + getValue;
   document.getElementById('donationBalanceThree').innerText = balance;
 
-  getValue.innerText = '';
+  //history section update 
+  const date = new Date();
+  const createSection = document.createElement('div');
+  createSection.classList.add('px-5', 'border-2', 'rounded-xl', 'space-y-3', 'p-5', 'mx-5', 'my-8');
+  createSection.innerHTML = `
+  <h2 class="text-xl font-bold"> ${getValue} Taka is ${getHeading}</h2>
+  <p class="text-gray-600">Date : ${date} </p>
+  `
+  document.getElementById('history-section').appendChild(createSection);
 });
