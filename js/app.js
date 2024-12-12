@@ -40,7 +40,6 @@ historyBtn.addEventListener('click', function(){
 });
 // button navigation section end here 
 
-
 // donation section One worked start here 
 document.getElementById('btn-donation-One').addEventListener('click', function(){
   const getValue = getInputValueUsingId('inputDonationOne');
@@ -78,4 +77,26 @@ document.getElementById('btn-donation-Two').addEventListener('click', function()
 
   const balance = donationBalance + getValue;
   document.getElementById('donationBalanceTwo').innerText = balance;
+});
+
+// donation section Three worked start here 
+document.getElementById('btn-donation-Three').addEventListener('click', function(){
+  const getValue = getInputValueUsingId('inputDonationThree');
+  const donationBalance = getInnerTextUsingById('donationBalanceThree');
+  const currentAccountBalance = getInnerTextUsingById('accountBalance');
+  if (isNaN(getValue) || getValue < 0) {
+    alert('invalid donation amount');
+    return;
+  }
+  else if (currentAccountBalance < getValue) {
+    alert('you have no insufficient balance');
+    return;
+  }
+  const decreaseAccountBalance = currentAccountBalance - getValue;
+  document.getElementById('accountBalance').innerText = decreaseAccountBalance;
+
+  const balance = donationBalance + getValue;
+  document.getElementById('donationBalanceThree').innerText = balance;
+
+  getValue.innerText = '';
 });
